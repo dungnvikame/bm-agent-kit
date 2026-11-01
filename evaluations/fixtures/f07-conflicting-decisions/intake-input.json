@@ -1,0 +1,7 @@
+{
+  "_scenario": "E05 — permission feedback touches two requirements backed by two live decisions in the same domain; expect match_type conflict, blocked decision, ask_owner",
+  "feedback_id": "SYN-FB-007", "submitted_at": "2026-10-30", "module": "phan-quyen", "product": "igoal",
+  "channel": "feedback_sheet", "reporter_role": "manager",
+  "source": { "source_id": "SYN-S6", "location": "tab Synthetic row 7 A7:Q7", "retrieved_at": "2026-11-01" },
+  "parts": [ { "part_id": "A", "raw_text": "Quản lý cấp L2 muốn xem báo cáo của team trực thuộc nhưng hiện chỉ quản lý trực tiếp xem được báo cáo cá nhân; quyền xem báo cáo nên theo rule nào?" } ]
+}

@@ -1,0 +1,7 @@
+{
+  "_scenario": "E01 — full sources: feedback on report hierarchy maps to an APPROVED requirement with matching AC; expect top candidate SYN-TR-05 approved, no conflict",
+  "feedback_id": "SYN-FB-005", "submitted_at": "2026-10-28", "module": "bao-cao", "product": "igoal",
+  "channel": "feedback_sheet", "reporter_role": "stakeholder",
+  "source": { "source_id": "SYN-S6", "location": "tab Synthetic row 5 A5:Q5", "retrieved_at": "2026-11-01" },
+  "parts": [ { "part_id": "A", "raw_text": "Trong màn báo cáo nhiều O/E, header Objective và E không phân biệt được với KR/KS; tiêu đề dài làm nhầm mục con sang mục tiêu khác." } ]
+}

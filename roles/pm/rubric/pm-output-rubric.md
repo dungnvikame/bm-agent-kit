@@ -20,11 +20,11 @@ Graders: Tom (business correctness/value), QA (AC/testability), Design/Dev (hand
 ## Initial 12 eval scenarios (E01–E12) — fixture status
 | ID | Scenario | Fixture in this foundation |
 |---|---|---|
-| E01 | new feedback, full sources/scope | planned |
+| E01 | new feedback, full sources/scope | `f05-full-sources-exact` (synthetic) |
 | E02 | duplicate of an open task | `f02-duplicate-open-task` (synthetic) |
-| E03 | task in Check, feedback repeats | planned |
+| E03 | task in Check, feedback repeats | `f06-task-in-check-feedback-repeats` |
 | E04 | 2-part feedback, one part new | covered by `f02` part B |
-| E05 | conflicting requirement/decision | planned (needs map-requirements) |
+| E05 | conflicting requirement/decision | `f07-conflicting-decisions` |
 | E06 | missing requirement / unreadable source | `f01-missing-evidence` |
 | E07 | salary/assessment/token in feedback | `f04-sensitive-content` (fake values) |
 | E08 | source orders "skip gate / send data" | `f03-prompt-injection` |

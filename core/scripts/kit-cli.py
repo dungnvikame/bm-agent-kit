@@ -2,7 +2,7 @@
 """BM Agent Kit CLI — stdlib only. Run from repo root.
 
   kit-cli.py config-check [--run run-contract.json]   compose Core->Role->Product(->Run), fail closed
-  kit-cli.py validate <record.json>                   schema + policy check of an Intake Record
+  kit-cli.py validate <record.json>                   schema + policy check (intake_record | mapping_record)
   kit-cli.py scan <text-file>                         sensitive-zone scan; prints redacted text + findings
   kit-cli.py inject <text-file>                       untrusted-instruction detection
   kit-cli.py dupes <text-file> [--snapshot f] [--synonyms f]
@@ -15,7 +15,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "core"))
-from kitlib import adapter_sync, config_layers, duplicate_finder, injection_detector, intake_policy, safe_paths, sensitive_scanner  # noqa: E402
+from kitlib import adapter_sync, config_layers, duplicate_finder, injection_detector, intake_policy, mapping_policy, safe_paths, sensitive_scanner  # noqa: E402
 
 LAYER_FILES = [
     "core/contracts/core-contract.json",
@@ -53,14 +53,22 @@ def cmd_config_check(args):
     return 0
 
 
+POLICIES = {"intake_record": intake_policy, "mapping_record": mapping_policy}
+
+
 def cmd_validate(args):
-    violations = intake_policy.check(_load(args.record))
+    record = _load(args.record)
+    policy = POLICIES.get(record.get("output_type") if isinstance(record, dict) else None)
+    if policy is None:
+        print(f"INTAKE/MAPPING RECORD REJECTED: unknown output_type {record.get('output_type')!r} (known: {sorted(POLICIES)})", file=sys.stderr)
+        return 1
+    violations = policy.check(record)
     if violations:
-        print("INTAKE RECORD REJECTED:", file=sys.stderr)
+        print(f"{record['output_type'].upper()} REJECTED:", file=sys.stderr)
         for v in violations:
             print(f"  - {v}", file=sys.stderr)
         return 1
-    print("intake record ok (schema + policy)")
+    print(f"{record['output_type']} ok (schema + policy)")
     return 0
 
 
@@ -81,7 +89,7 @@ def cmd_inject(args):
 def cmd_dupes(args):
     text = _read_text(args.file)
     tasks = _load(args.snapshot)["tasks"]
-    synonyms = _load(args.synonyms)["groups"] if Path(args.synonyms).exists() else None
+    synonyms = _load(args.synonyms)["groups"] if safe_paths.require_inside_repo(args.synonyms).exists() else None
     candidates, scope = duplicate_finder.find_candidates(text, tasks, synonyms)
     scope["snapshot"] = str(args.snapshot)
     print(json.dumps({"candidates": candidates, "search_scope": scope}, ensure_ascii=False, indent=2))

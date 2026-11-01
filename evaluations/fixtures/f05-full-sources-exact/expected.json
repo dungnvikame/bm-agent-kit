@@ -1,0 +1,3 @@
+{ "parts": { "A": { "top_requirement_id": "SYN-TR-05", "top_requirement_approval": "approved", "match_type_default": "unknown", "conflict": null } },
+  "requirements_scanned_min": 1, "exhaustive": false, "external_action": { "requested": false, "executed": false },
+  "filled_record_must_pass": true }
