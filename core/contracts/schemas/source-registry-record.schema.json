@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bm-agent-kit/source-registry-record",
+  "title": "Source Registry record (spec 4.1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id", "url", "type", "owner", "authority_domain", "version_or_snapshot",
+    "modified_at", "retrieved_at", "approval_status", "approved_by", "approved_at",
+    "sensitivity", "supersedes"
+  ],
+  "properties": {
+    "source_id": { "type": "string" },
+    "name": { "type": "string" },
+    "url": { "type": "string", "description": "'unknown' or redacted placeholder in shared repo; real value in source-registry.local.json" },
+    "type": { "type": "string", "enum": ["doc", "sheet", "task_system", "chat", "dashboard", "repo", "design", "other", "unknown"] },
+    "owner": { "type": "string" },
+    "authority_domain": { "type": "string" },
+    "used_for": { "type": "string" },
+    "version_or_snapshot": { "type": "string" },
+    "modified_at": { "type": "string" },
+    "retrieved_at": { "type": "string" },
+    "approval_status": { "type": "string", "enum": ["approved", "not_approved", "unknown"] },
+    "approval_note": { "type": "string" },
+    "approved_by": { "type": ["string", "null"] },
+    "approved_at": { "type": ["string", "null"] },
+    "sensitivity": { "type": "string", "enum": ["public", "internal", "restricted", "contains_sensitive_zones", "unknown"] },
+    "supersedes": { "type": ["string", "null"] },
+    "usage_rule": { "type": "string", "enum": ["official_input", "evidence_or_proposal_only", "unknown"] }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "_scenario": "E07 — feedback contains FAKE token, fake email, fake phone and a salary/assessment sentence; expect redaction, categories, record persistable",
+  "feedback_id": "SYN-FB-004", "submitted_at": "2026-10-31", "module": "phan-quyen", "product": "igoal",
+  "channel": "slack_dm", "reporter_role": "manager",
+  "source": { "source_id": "SYN-S6", "location": "tab Synthetic row 4 A4:Q4", "retrieved_at": "2026-11-01" },
+  "parts": [
+    { "part_id": "A", "raw_text": "Màn phân quyền cho tôi xem được báo cáo của team khác. Ví dụ tôi thấy lương của nhân viên X là 30 triệu và đánh giá hiệu suất xếp loại B. Liên hệ tôi qua fake.person@example.com hoặc 0912 345 678. Token test: sk-test-FAKE00000000000000000000." }
+  ]
+}

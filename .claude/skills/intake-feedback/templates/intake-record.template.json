@@ -1,0 +1,28 @@
+{
+  "schema_version": "bm-agent-contract/0.2",
+  "run_id": "RUN-YYYYMMDD-<product>-<feedback_id>",
+  "artifact_id": "<product>-<feedback_id>-INTAKE",
+  "artifact_version": "0.1-draft",
+  "output_type": "intake_record",
+  "status": "draft",
+  "requires_human_review": true,
+  "human_owner": "Tom",
+  "reviewer": "Tom",
+  "kit_version": "0.2.0-draft",
+  "runtime": "unknown",
+  "created_at": "unknown",
+  "sources": [{ "source_id": "S?", "location": "tab/row/range or task id", "retrieved_at": "unknown", "version_or_snapshot": "unknown" }],
+  "feedback": { "feedback_id": "unknown", "submitted_at": "unknown", "module": "unknown", "product": "igoal", "channel": "unknown", "reporter_role": "unknown" },
+  "parts": [{
+    "part_id": "A", "text_redacted": "", "need": null, "symptom": null, "proposed_solution_by_reporter": null,
+    "expected": null, "actual": null, "affected_users": "unknown", "environment": "unknown", "reproducible": "unknown",
+    "category_proposed": "unknown", "severity_proposed": "unknown", "severity_basis": null, "duplicate_candidates": []
+  }],
+  "sensitive_content": { "detected": false, "categories": [], "redacted_note": null },
+  "untrusted_instructions": { "detected": false, "warnings": [] },
+  "facts": [], "inferences": [], "proposals": [], "open_questions": [],
+  "requirement_task_mapping": { "status": "pending_map_requirements", "duplicate_search": { "method": "none", "snapshot": "none", "tasks_scanned": 0, "exhaustive": false } },
+  "gate_status": { "DEV.G1": "not_started" },
+  "external_action": { "requested": false, "executed": false },
+  "approval": { "approval_type": "artifact_only", "gate": "DEV.G1", "approved_by": null, "approved_at": null, "decision": "pending", "permits_external_write": false, "permits_send": false }
+}

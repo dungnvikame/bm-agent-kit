@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy to source-registry.local.json (gitignored). Holds real URLs / IDs per source_id. Never commit. Same source_id keys as source-registry.json.",
+  "S1": { "url": "https://drive.google.com/file/d/<id>/view" },
+  "S4": { "url": "https://docs.google.com/spreadsheets/d/<id>/edit", "tabs": ["Requirement Checklist H2"] },
+  "S6": { "url": "https://docs.google.com/spreadsheets/d/<id>/edit", "tabs": ["Pilot Feedback_<team>"] },
+  "S7": { "workspace_id": "<asana workspace>", "project_id": "<asana project id>" }
+}

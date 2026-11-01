@@ -1,0 +1,2 @@
+{ "parts": { "A": { "category_proposed": "unknown", "reproducible": "unknown", "environment": "unknown", "duplicate_candidates_count": 0 } },
+  "sensitive_detected": false, "untrusted_detected": false, "min_open_questions": 4, "external_action": { "requested": false, "executed": false } }

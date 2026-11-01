@@ -1,0 +1,4 @@
+{ "parts": { "A": { "top_duplicate_task_id": "SYN-TASK-0007", "duplicate_candidates_min": 1 },
+             "B": { "must_not_contain_task_id": "SYN-TASK-0012" } },
+  "duplicate_search_exhaustive": false, "sensitive_detected": false, "untrusted_detected": false,
+  "source_priority_label": "Cao", "external_action": { "requested": false, "executed": false } }

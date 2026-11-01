@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bm-agent-kit/evidence-item",
+  "title": "Evidence item (Fact / Inference / Proposal / Unknown)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "claim"],
+  "properties": {
+    "label": { "type": "string", "enum": ["fact", "inference", "proposal", "unknown"] },
+    "claim": { "type": "string", "minLength": 1 },
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "location"],
+      "properties": {
+        "source_id": { "type": "string" },
+        "location": { "type": "string", "description": "tab+row+range, task id+modified_at, doc section" },
+        "retrieved_at": { "type": "string" }
+      }
+    },
+    "based_on": { "type": "array", "items": { "type": "string" }, "description": "claims this inference rests on" }
+  }
+}

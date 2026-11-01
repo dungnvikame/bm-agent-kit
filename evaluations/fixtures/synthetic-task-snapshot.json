@@ -1,0 +1,11 @@
+{
+  "_comment": "SYNTHETIC task snapshot for tests. IDs, titles and owners are invented; no real Asana data.",
+  "snapshot_at": "2026-11-01T00:00:00Z",
+  "project": "SYN-PROJECT-IGOAL",
+  "tasks": [
+    { "task_id": "SYN-TASK-0007", "title": "[UI] Làm rõ phân cấp Objective/KR và E/KS trong báo cáo", "description": "Header O/E chưa nổi bật, tiêu đề dài bị truncate; cần phân cấp rõ cấp mục tiêu trong màn báo cáo.", "status": "open", "section": "Check — đã hoàn thành, cần QA review", "owner_role": "dev", "modified_at": "2026-10-20" },
+    { "task_id": "SYN-TASK-0012", "title": "[Check-in] Nhắc lịch check-in hàng tuần qua thông báo", "description": "Gửi nhắc nhở check-in định kỳ cho owner KR.", "status": "open", "section": "Backlog", "owner_role": "dev", "modified_at": "2026-10-12" },
+    { "task_id": "SYN-TASK-0021", "title": "[Permission] Rà soát quyền xem báo cáo theo cấp quản lý", "description": "Đối chiếu rule phân quyền mặc định với hành vi hiện tại của màn báo cáo.", "status": "open", "section": "Backlog", "owner_role": "pm", "modified_at": "2026-10-28" },
+    { "task_id": "SYN-TASK-0033", "title": "[Export] Xuất báo cáo OKR ra PDF", "description": "Cho phép tải bản báo cáo kỳ dưới dạng PDF.", "status": "done", "section": "Done", "owner_role": "dev", "modified_at": "2026-09-30" }
+  ]
+}

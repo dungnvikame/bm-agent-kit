@@ -1,0 +1,7 @@
+{
+  "_scenario": "E06 — feedback lacks module detail, steps, build; expect unknown defaults, open questions, no bug claim, no duplicates",
+  "feedback_id": "SYN-FB-001", "submitted_at": "2026-10-30", "module": "unknown", "product": "igoal",
+  "channel": "feedback_sheet", "reporter_role": "stakeholder",
+  "source": { "source_id": "SYN-S6", "location": "tab Synthetic row 1 A1:Q1", "retrieved_at": "2026-11-01" },
+  "parts": [ { "part_id": "A", "raw_text": "Hệ thống bị lỗi, không dùng được. Mong sửa gấp." } ]
+}

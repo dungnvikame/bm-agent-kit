@@ -1,0 +1,20 @@
+{
+  "_comment": "Logical capability (core tool-policy) -> Codex. Codex CLI is NOT installed on the build machine; this adapter is a template verified against docs only, not executed.",
+  "runtime": "codex",
+  "instruction_file": "AGENTS.md",
+  "skills_dir": ".agents/skills",
+  "config_file": ".codex/config.toml (generated from adapters/codex/config.toml)",
+  "launch": "codex --sandbox workspace-write --ask-for-approval on-request   # or rely on .codex/config.toml in a trusted project",
+  "capabilities": {
+    "read_docs":   { "tools": [], "status": "no_connector_configured" },
+    "read_sheets": { "tools": [], "status": "no_connector_configured" },
+    "read_tasks":  { "tools": [], "status": "no_connector_configured — when added use mcp_servers.<id>.enabled_tools with read tools only" },
+    "read_chat":   { "tools": [], "status": "no_connector_configured" },
+    "read_dashboard": { "tools": [], "status": "no_source_registered" },
+    "web_search":  { "tools": ["built-in web search if enabled"], "status": "allowed_with_filtered_query" },
+    "local_draft_write": { "tools": ["sandbox workspace-write (repo files)"], "status": "allowed — instruction limits it to runs/; sandbox does not scope to a subfolder" },
+    "write_tasks": { "tools": [], "status": "NOT EXPOSED (no connector)" },
+    "send_message": { "tools": [], "status": "NOT EXPOSED (no connector)" },
+    "shell_network_bypass": { "tools": ["shell"], "status": "network_access=false in sandbox blocks outbound network" }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "bm-agent-contract/0.2",
+  "layer": "core",
+  "config_version": "0.2.0-draft",
+  "extends": "pm-agent-config.md@0.1.0",
+  "safety": {
+    "trust_mode": "standard",
+    "human_gate_required": true,
+    "mode": "read_only_draft"
+  },
+  "tools": {
+    "default": "deny",
+    "reads": "allowlisted_product_sources_only",
+    "writes": "disabled",
+    "sends": "disabled",
+    "shell_network_bypass": "forbidden",
+    "local_drafts": "allowed",
+    "sensitive_content_persistence": "forbidden",
+    "capabilities": [
+      "read_docs", "read_sheets", "read_tasks", "read_chat",
+      "read_dashboard", "web_search", "local_draft_write"
+    ]
+  },
+  "approval": {
+    "artifact_approval_is_execution_approval": false,
+    "downstream_requires": "approved_and_recorded_in_source_of_truth",
+    "create_development_tasks_requires": ["DEV.G3", "explicit_action_approval"],
+    "content_change_invalidates_action_approval": true,
+    "changed_source_requires_gate_revalidation": true
+  },
+  "communication": {
+    "auto_send": false,
+    "auto_mention_bod": false,
+    "draft_to_sponsor_requires_tom_approval": true,
+    "escalate_to_nghia_requires_instruction": true
+  },
+  "privacy": {
+    "never_persist": [
+      "employee_assessments", "salary_and_bonus", "employee_personal_data",
+      "credentials_tokens_api_keys", "unauthorized_bod_content"
+    ],
+    "redacted_note": "Có nội dung nhạy cảm, không transcribe chi tiết."
+  },
+  "output": {
+    "status": "draft",
+    "requires_human_review": true,
+    "required_fields": [
+      "run_id", "artifact_id", "artifact_version", "output_type", "human_owner",
+      "sources", "facts", "inferences", "proposals", "open_questions",
+      "requirement_task_mapping", "gate_status", "external_action"
+    ]
+  },
+  "evaluation": {
+    "self_check": "advisory",
+    "final_grader": "human",
+    "critical_safety_failure": "stop_pilot_and_review"
+  },
+  "gates": {
+    "namespaces": ["DEV.G1", "DEV.G2", "DEV.G3", "DEV.G4", "DEV.G5", "OPS.O1", "OPS.O2", "OPS.O3", "OPS.O4"],
+    "agent_may_set": ["not_started", "pending", "invalidated"]
+  }
+}
