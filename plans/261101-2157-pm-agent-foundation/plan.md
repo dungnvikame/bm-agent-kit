@@ -8,10 +8,11 @@ Turn the v0.2 spec into a runnable kit skeleton shared by Codex and Claude Code:
 ## Phases
 | # | Phase | Status |
 |---|---|---|
-| 1 | Foundation: core policies/contracts/schemas, kitlib + CLI, PM role pack, iGoal product pack, adapters, `intake-feedback`, fixtures f01–f04, smoke tests, README | **done — awaiting Tom review** |
-| 2 | `map-requirements` skill + requirement snapshot fixture; E03/E05 fixtures | not started |
+| 1 | Foundation: core policies/contracts/schemas, kitlib + CLI, PM role pack, iGoal product pack, adapters, `intake-feedback`, fixtures f01–f04, smoke tests, README | **done — merged PR #1** |
+| 2 | `map-requirements` skill, mapping schema + policy, synthetic requirements/decisions snapshot, fixtures f05–f07 (E01/E03/E05) | **done — awaiting Tom review** (branch `feat/pm-agent-map-requirements`) |
 | 3 | `breakdown-feature`, `create-asana-tasks` (proposal-only), `evaluate-pm-output` | not started |
 | 4 | Close iGoal Context Index with Tom (approved sources, local registry, real MCP server names); PreToolUse hooks for scan/validate | not started |
+| 4b | Maintainer dashboard under `tools/dashboard/` (separate session, Tom's request) | in progress |
 | 5 | Codex smoke run on a machine with Codex CLI; P&OD #16 review session (local, not in repo) | not started |
 | 6 | Pilot: 10 cases + baseline, human rubric results (redacted) under `evaluations/results/` | not started |
 

@@ -5,7 +5,7 @@ Names below are workflow contracts. Only rows marked **implemented** exist as a 
 | Skill | Status | Trigger / input | Output | Gate / condition |
 |---|---|---|---|---|
 | `intake-feedback` | **implemented (foundation)** | feedback + source + module; raw text or a readable allowlisted link | Intake Record: split parts, missing context, sensitive flags, duplicate candidates | local Draft only; no external ticket |
-| `map-requirements` | planned (MVP) | Intake + requirement/decision/task snapshot | mapping exact/partial/gap/conflict/unknown + evidence | keyword ≠ committed scope; conflict blocks affected decision |
+| `map-requirements` | **implemented (phase 2)** | validated Intake Record + requirement/decision/task snapshot | Mapping Record: per part exact/partial/gap/conflict/unknown, candidates, existing tasks, blockers, proposed_action | keyword ≠ committed scope; conflict → ask_owner; check/done task needs QA or release evidence; no create action |
 | `breakdown-feature` | planned (MVP, inherited v0.1) | approved problem/solution when used officially | stories, AC, dependencies, role handoff, task proposal | may pre-draft tasks; no estimate/HOW decisions |
 | `create-asana-tasks` | planned (MVP, proposal-only) | task drafts + project/parent + gate evidence | payload preview + action diff | external write only after DEV.G3 + action approval; MVP write tools off |
 | `evaluate-pm-output` | planned (MVP) | draft + source snapshot + rubric | checklist, errors, missing evidence, fixes | self-check ≠ human approval |
