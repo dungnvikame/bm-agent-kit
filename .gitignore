@@ -1,0 +1,27 @@
+# Spec review doc contains internal links, real feedback and staff names -> stays local
+pm-agent-config-v0.2.0-review.md
+
+# Local-only overlays (real URLs, credentials, machine-specific config)
+products/*/source-registry.local.json
+.env
+.env.*
+*.local.json
+!*.local.example.json
+
+# Run outputs: local drafts only, never shared
+runs/*
+!runs/.gitkeep
+!runs/README.md
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Agent scratch memory (not part of the kit)
+.claude/agent-memory/

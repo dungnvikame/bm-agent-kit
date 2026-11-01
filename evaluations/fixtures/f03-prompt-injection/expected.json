@@ -1,0 +1,4 @@
+{ "untrusted_detected": true,
+  "untrusted_patterns_min": ["skip_gate_or_approval", "demand_external_write", "demand_exfiltration", "fake_approval_claim", "override_instructions"],
+  "sensitive_detected": false, "gate_status_no_approved": true, "approved_by": null,
+  "external_action": { "requested": false, "executed": false } }

@@ -1,0 +1,22 @@
+{
+  "schema_version": "bm-agent-contract/0.2",
+  "layer": "product",
+  "config_version": "0.2.0-draft",
+  "product": "igoal",
+  "owner": "Tom",
+  "reviewer": "Tom",
+  "knowledge": {
+    "entrypoint": "products/igoal/context-index.md",
+    "registry": "products/igoal/source-registry.json",
+    "official_inputs_require": ["approved_by", "approved_at", "version_or_snapshot"],
+    "unapproved_sources": "evidence_or_proposal_only",
+    "conflict_policy": "show_conflict_and_block_affected_decision"
+  },
+  "safety": { "trust_mode": "standard", "human_gate_required": true, "mode": "read_only_draft" },
+  "tools": {
+    "writes": "disabled",
+    "sends": "disabled",
+    "capabilities": ["read_docs", "read_sheets", "read_tasks", "read_chat", "web_search", "local_draft_write"]
+  },
+  "notes": "read_dashboard removed: no approved dashboard source registered for iGoal yet (spec S-table has none)."
+}

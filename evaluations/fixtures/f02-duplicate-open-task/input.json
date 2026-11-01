@@ -1,0 +1,10 @@
+{
+  "_scenario": "E02/E04 — two-part feedback (synthetic analogue of a hierarchy + collapse request); part A matches an open task, part B has no match",
+  "feedback_id": "SYN-FB-002", "submitted_at": "2026-10-29", "module": "bao-cao", "product": "igoal",
+  "channel": "feedback_sheet", "reporter_role": "stakeholder", "source_priority_label": "Cao",
+  "source": { "source_id": "SYN-S6", "location": "tab Synthetic row 2 A2:Q2", "retrieved_at": "2026-11-01" },
+  "parts": [
+    { "part_id": "A", "raw_text": "Trong màn báo cáo, phân cấp Objective và E chưa nổi bật, cỡ chữ nhỏ hơn KR/KS nên khó phân biệt cấp mục tiêu." },
+    { "part_id": "B", "raw_text": "Muốn có nút thu gọn / mở rộng ở cấp O để theo dõi cấu trúc khi báo cáo dài." }
+  ]
+}

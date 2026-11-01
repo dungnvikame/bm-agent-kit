@@ -1,0 +1,21 @@
+{
+  "_comment": "Logical capability (core tool-policy) -> Claude Code tool names. Server names asana/slack/google-drive are PLACEHOLDERS: they must equal the MCP server names configured on the machine, otherwise the deny rules do not match (open question for Tom). Tools not listed are treated as write and must stay denied/prompted.",
+  "runtime": "claude-code",
+  "instruction_file": "CLAUDE.md",
+  "skills_dir": ".claude/skills",
+  "settings_file": "adapters/claude-code/pm-agent-settings.json",
+  "launch": "claude --settings adapters/claude-code/pm-agent-settings.json",
+  "capabilities": {
+    "read_docs":   { "tools": ["mcp__google-drive__read_file_content", "mcp__google-drive__get_file_metadata", "mcp__google-drive__search_files"], "status": "allowed_if_connector_present" },
+    "read_sheets": { "tools": ["mcp__google-drive__read_file_content"], "status": "allowed_if_connector_present" },
+    "read_tasks":  { "tools": ["mcp__asana__get_task", "mcp__asana__get_tasks", "mcp__asana__search_tasks", "mcp__asana__get_project", "mcp__asana__get_task_stories"], "status": "allowed_if_connector_present" },
+    "read_chat":   { "tools": ["mcp__slack__slack_read_channel", "mcp__slack__slack_read_thread", "mcp__slack__slack_search_public"], "status": "allowed_if_connector_present" },
+    "read_dashboard": { "tools": [], "status": "no_source_registered" },
+    "web_search":  { "tools": ["WebSearch"], "status": "allowed" },
+    "local_draft_write": { "tools": ["Edit(./runs/**)", "Write (covered by the same Edit(./runs/**) rule; *.py/*.sh/*.js under runs/ denied)"], "status": "allowed" },
+    "write_tasks": { "tools": ["mcp__asana__create_tasks", "mcp__asana__update_tasks", "mcp__asana__add_comment", "..."], "status": "DENIED" },
+    "send_message": { "tools": ["mcp__slack__slack_send_message", "mcp__slack__slack_schedule_message", "..."], "status": "DENIED" },
+    "write_docs":  { "tools": ["mcp__google-drive__create_file", "mcp__google-drive__update_file", "..."], "status": "DENIED" },
+    "shell_network_bypass": { "tools": ["Bash(curl *)", "Bash(wget *)", "WebFetch", "..."], "status": "DENIED (not a security boundary: Bash rules match the written command text only)" }
+  }
+}

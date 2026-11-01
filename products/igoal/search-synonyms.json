@@ -1,0 +1,12 @@
+{
+  "_comment": "Term groups for duplicate search by meaning (spec 8.3). Extend with Tom; vi/en mixed.",
+  "groups": {
+    "collapse": ["collapse", "expand", "thu gọn", "mở rộng", "đóng mở", "ẩn hiện", "gập"],
+    "hierarchy": ["hierarchy", "phân cấp", "cấp mục tiêu", "cha con", "cấp O", "cấp E", "cấu trúc"],
+    "report": ["báo cáo", "report", "bản báo cáo"],
+    "checkin": ["check-in", "checkin", "check in", "cập nhật tiến độ"],
+    "font": ["cỡ chữ", "font", "kích thước chữ", "size chữ"],
+    "permission": ["phân quyền", "quyền xem", "permission", "visibility", "quyền truy cập"],
+    "truncate": ["truncate", "cắt chữ", "rút gọn", "tiêu đề dài"]
+  }
+}
