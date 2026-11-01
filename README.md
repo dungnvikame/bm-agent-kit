@@ -72,5 +72,8 @@ Template / unverified: everything under `adapters/codex/` and `.codex/` (not exe
 - Edit canonical files, then `kit-cli.py sync --write`. Never edit `AGENTS.md`, `CLAUDE.md`, `.claude/skills`, `.agents/skills`, `.codex/` by hand.
 - No auto push/merge/deploy. Branch: `feat/pm-agent-foundation`.
 
+## Maintainer dashboard
+`python3 tools/dashboard/serve.py` → http://127.0.0.1:8765 (stdlib only, localhost only). Read views for layers/effective config, skills + adapter sync, policies, product pack, evaluations, plans; edit forms for the role/product contracts and canonical skill/policy/instruction files. Every save is refused on any compose violation and re-syncs adapter copies; no git actions, no private files. See `docs/dashboard-guide.md`.
+
 ## Not in MVP (by spec)
 Web UI, vector DB, multi-agent orchestration, self-learning memory, write adapters, skills other than `intake-feedback` (see `roles/pm/skills/README.md` for planned contracts).

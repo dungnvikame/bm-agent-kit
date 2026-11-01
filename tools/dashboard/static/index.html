@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BM Agent Kit — Maintainer Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <div class="brand">BM Agent Kit <span class="muted">maintainer dashboard · local only · not part of the agent runtime</span></div>
+  <div id="status-pill" class="pill">loading…</div>
+</header>
+<div class="layout">
+  <nav id="nav">
+    <div class="nav-group">Read</div>
+    <button data-view="overview">Layers &amp; effective config</button>
+    <button data-view="skills">Skills</button>
+    <button data-view="policies">Policies</button>
+    <button data-view="product">Product pack (iGoal)</button>
+    <button data-view="evaluations">Evaluations</button>
+    <button data-view="plans">Plans &amp; reports</button>
+    <div class="nav-group">Edit</div>
+    <button data-view="contracts">Contracts (forms)</button>
+    <button data-view="editor">Text editor</button>
+  </nav>
+  <main id="main"><p class="muted">Loading…</p></main>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script src="/static/dashboard-core.js"></script>
+<script src="/static/json-form.js"></script>
+<script src="/static/views-read.js"></script>
+<script src="/static/views-edit.js"></script>
+<script>Dash.boot();</script>
+</body>
+</html>
