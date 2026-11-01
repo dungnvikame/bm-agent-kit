@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bm-agent-kit/approval-record",
+  "title": "Approval Record — written by a HUMAN approver, never by the agent (spec 7.1)",
+  "description": "artifact_only approvals unlock downstream drafting at a gate; action approvals name operation + destination + payload_hash. The agent only reads and verifies these.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["approval_type", "artifact_id", "artifact_version", "gate", "approver", "approved_at", "decision", "recorded_in"],
+  "properties": {
+    "approval_type": { "type": "string", "enum": ["artifact_only", "action"] },
+    "artifact_id": { "type": "string", "minLength": 1 },
+    "artifact_version": { "type": "string", "minLength": 1 },
+    "gate": { "type": "string", "enum": ["DEV.G1", "DEV.G2", "DEV.G3", "DEV.G4", "DEV.G5", "OPS.O1", "OPS.O2", "OPS.O3", "OPS.O4"] },
+    "approver": { "type": "string", "minLength": 1, "description": "human approver with the right role; never 'PM Agent'" },
+    "approved_at": { "type": "string", "minLength": 1 },
+    "decision": { "type": "string", "enum": ["approved", "rejected", "changes_requested"] },
+    "recorded_in": {
+      "type": "object", "additionalProperties": false, "required": ["source_id", "location"],
+      "properties": { "source_id": { "type": "string" }, "location": { "type": "string" } }
+    },
+    "scope_of_applicability": { "type": "string" },
+    "operation": { "type": "string", "enum": ["create", "update", "link"] },
+    "destination": {
+      "type": "object", "additionalProperties": false, "required": ["project_id"],
+      "properties": { "project_id": { "type": "string" }, "parent_task_id": { "type": ["string", "null"] }, "task_id": { "type": ["string", "null"] } }
+    },
+    "payload_hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "expires_at": { "type": ["string", "null"] },
+    "note": { "type": "string" }
+  }
+}

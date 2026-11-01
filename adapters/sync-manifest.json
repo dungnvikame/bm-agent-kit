@@ -1,8 +1,53 @@
 {
   "_comment": "Canonical source -> runtime copies. kit-cli.py sync --write copies; sync --check verifies sha256 equality (spec 11: one canonical, adapters copied + hash-checked).",
   "entries": [
-    { "source": "core/agent-instructions.md", "targets": ["AGENTS.md", "CLAUDE.md"] },
-    { "source": "roles/pm/skills/intake-feedback", "targets": [".claude/skills/intake-feedback", ".agents/skills/intake-feedback"] },
-    { "source": "adapters/codex/config.toml", "targets": [".codex/config.toml"] }
+    {
+      "source": "core/agent-instructions.md",
+      "targets": [
+        "AGENTS.md",
+        "CLAUDE.md"
+      ]
+    },
+    {
+      "source": "roles/pm/skills/intake-feedback",
+      "targets": [
+        ".claude/skills/intake-feedback",
+        ".agents/skills/intake-feedback"
+      ]
+    },
+    {
+      "source": "roles/pm/skills/map-requirements",
+      "targets": [
+        ".claude/skills/map-requirements",
+        ".agents/skills/map-requirements"
+      ]
+    },
+    {
+      "source": "adapters/codex/config.toml",
+      "targets": [
+        ".codex/config.toml"
+      ]
+    },
+    {
+      "source": "roles/pm/skills/breakdown-feature",
+      "targets": [
+        ".claude/skills/breakdown-feature",
+        ".agents/skills/breakdown-feature"
+      ]
+    },
+    {
+      "source": "roles/pm/skills/create-asana-tasks",
+      "targets": [
+        ".claude/skills/create-asana-tasks",
+        ".agents/skills/create-asana-tasks"
+      ]
+    },
+    {
+      "source": "roles/pm/skills/evaluate-pm-output",
+      "targets": [
+        ".claude/skills/evaluate-pm-output",
+        ".agents/skills/evaluate-pm-output"
+      ]
+    }
   ]
 }

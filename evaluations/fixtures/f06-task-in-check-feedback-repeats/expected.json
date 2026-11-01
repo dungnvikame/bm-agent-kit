@@ -1,0 +1,2 @@
+{ "parts": { "A": { "existing_task_id": "SYN-TASK-0007", "existing_task_status": "check", "proposed_action_default": "request_qa_evidence", "blocker_contains": "evidence" } },
+  "link_without_evidence_rejected": true, "external_action": { "requested": false, "executed": false } }

@@ -1,0 +1,2 @@
+{ "_scenario": "evaluate-pm-output — clean mapping -> incomplete with zero fails; mapping with approved_by set -> IF3 fail -> fail_stop; reviewer-filled levels all 4 -> pass_advisory accepted; human_level set, wrong score or pass with a fail -> rejected",
+  "clean_verdict": "incomplete", "tampered_verdict": "fail_stop", "tampered_fail_check": "IF3_fabricated_source_or_approval", "pass_score": 100.0 }

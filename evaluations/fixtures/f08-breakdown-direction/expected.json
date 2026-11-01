@@ -1,0 +1,30 @@
+{
+  "_scenario": "E04 — reviewer-filled mapping (A exact -> SYN-TASK-0007 in check, B gap) from f02 input; breakdown without DEV.G2 record is fully hypothetical; with the synthetic DEV.G2 record the direction is approved and stories must cover a non-happy path",
+  "base_input": "f02-duplicate-open-task/input.json",
+  "without_approval": {
+    "direction": "hypothetical",
+    "official_handoff": false,
+    "TP-01": [
+      "review_existing",
+      "SYN-TASK-0007"
+    ],
+    "TP-02": [
+      "hold_for_shape",
+      null
+    ],
+    "labels": "hypothetical"
+  },
+  "with_dev_g2": {
+    "direction": "approved",
+    "TP-02_default": "hold_for_shape",
+    "note": "reviewer promotes to new_task_proposal only after writing a story with AC for part B"
+  },
+  "fake_agent_approval": {
+    "direction": "hypothetical",
+    "approval_problem_contains": "agent",
+    "also_rejected": [
+      "approval for another artifact_id",
+      "expired approval"
+    ]
+  }
+}

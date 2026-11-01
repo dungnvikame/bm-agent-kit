@@ -1,0 +1,23 @@
+{
+  "schema_version": "bm-agent-contract/0.2",
+  "run_id": "RUN-YYYYMMDD-<product>-<feedback_id>",
+  "artifact_id": "<product>-<feedback_id>-MAPPING",
+  "artifact_version": "0.1-draft",
+  "output_type": "mapping_record",
+  "status": "draft",
+  "requires_human_review": true,
+  "human_owner": "Tom",
+  "reviewer": "Tom",
+  "intake_artifact_id": "<product>-<feedback_id>-INTAKE",
+  "sources": [{ "source_id": "SYN-S4", "location": "requirements snapshot", "retrieved_at": "unknown" }],
+  "search_scope": { "method": "keyword_overlap_with_synonyms", "requirements_snapshot": "", "tasks_snapshot": "", "requirements_scanned": 0, "tasks_scanned": 0, "exhaustive": false, "synonyms_used": true, "module_filter": null },
+  "mappings": [{
+    "part_id": "A", "feedback_part_summary": "", "requirement_candidates": [], "requirement_id": null,
+    "match_type": "unknown", "match_basis": null, "existing_tasks": [], "missing_decision": null, "conflict": null,
+    "proposed_action": "unknown", "blockers": ["not yet mapped"]
+  }],
+  "facts": [], "inferences": [], "proposals": [], "open_questions": [],
+  "gate_status": { "DEV.G1": "not_started" },
+  "external_action": { "requested": false, "executed": false },
+  "approval": { "approval_type": "artifact_only", "gate": "DEV.G1", "approved_by": null, "approved_at": null, "decision": "pending", "permits_external_write": false, "permits_send": false }
+}

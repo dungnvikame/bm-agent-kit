@@ -4,28 +4,64 @@
   "config_version": "0.2.0-draft",
   "agent": "PM Agent",
   "role": "pm",
-  "language": { "chat": "vi", "documents": "vi + English inline" },
+  "language": {
+    "chat": "vi",
+    "documents": "vi + English inline"
+  },
   "scope": {
-    "level": ["WHAT", "WHY"],
+    "level": [
+      "WHAT",
+      "WHY"
+    ],
     "allowed": [
-      "problem_and_outcome", "personas_and_jtbd", "requirement_mapping",
-      "user_stories_and_acceptance_criteria", "sprint_scope_proposal",
-      "task_and_handoff_proposal", "status_and_outcome_summary"
+      "problem_and_outcome",
+      "personas_and_jtbd",
+      "requirement_mapping",
+      "user_stories_and_acceptance_criteria",
+      "sprint_scope_proposal",
+      "task_and_handoff_proposal",
+      "status_and_outcome_summary"
     ],
     "handoff_only": [
-      "technical_implementation", "ui_component_implementation", "test_automation",
-      "security_execution", "production_deployment"
+      "technical_implementation",
+      "ui_component_implementation",
+      "test_automation",
+      "security_execution",
+      "production_deployment"
     ]
   },
-  "safety": { "trust_mode": "standard", "human_gate_required": true, "mode": "read_only_draft" },
+  "safety": {
+    "trust_mode": "standard",
+    "human_gate_required": true,
+    "mode": "read_only_draft"
+  },
   "tools": {
     "writes": "disabled",
     "sends": "disabled",
-    "capabilities": ["read_docs", "read_sheets", "read_tasks", "read_chat", "read_dashboard", "web_search", "local_draft_write"]
+    "capabilities": [
+      "read_docs",
+      "read_sheets",
+      "read_tasks",
+      "read_chat",
+      "read_dashboard",
+      "web_search",
+      "local_draft_write"
+    ]
   },
   "skills": {
-    "implemented": ["intake-feedback"],
-    "planned_mvp": ["map-requirements", "breakdown-feature", "create-asana-tasks", "evaluate-pm-output"],
-    "planned_later": ["draft-prd", "summarize-sprint-status", "update-docs-on-completion", "draft-stakeholder-update"]
+    "implemented": [
+      "intake-feedback",
+      "map-requirements",
+      "breakdown-feature",
+      "create-asana-tasks",
+      "evaluate-pm-output"
+    ],
+    "planned_mvp": [],
+    "planned_later": [
+      "draft-prd",
+      "summarize-sprint-status",
+      "update-docs-on-completion",
+      "draft-stakeholder-update"
+    ]
   }
 }

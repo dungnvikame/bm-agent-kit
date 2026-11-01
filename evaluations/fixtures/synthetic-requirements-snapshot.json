@@ -1,0 +1,16 @@
+{
+  "_comment": "SYNTHETIC requirements + decisions snapshot (stand-in for S4/S5/S8/S9). IDs and text invented; no real checklist rows.",
+  "snapshot_at": "2026-11-01T00:00:00Z",
+  "source_id": "SYN-S4",
+  "requirements": [
+    { "requirement_id": "SYN-TR-02", "module": "bao-cao", "domain": "report_ux", "title": "Report/Check-in UX giảm friction cho người viết báo cáo", "scope": "Giảm số thao tác và nhầm lẫn khi viết, đọc báo cáo kỳ.", "acceptance_criteria": ["Người viết hoàn thành báo cáo kỳ không cần hướng dẫn thêm"], "priority_label": "P0", "approval_status": "unknown", "approved_by": null, "approved_at": null, "version": "H2-rev3", "decision_ref": null },
+    { "requirement_id": "SYN-TR-05", "module": "bao-cao", "domain": "report_hierarchy", "title": "Hiển thị phân cấp Objective/KR và E/KS rõ ràng trong màn báo cáo", "scope": "Người xem nhận biết mục tiêu cha và mục con trực thuộc trong báo cáo nhiều O/E.", "acceptance_criteria": ["Header O và E phân biệt được với KR/KS bằng cấp bậc hiển thị", "KR/KS hiển thị trực thuộc đúng mục tiêu cha", "Tiêu đề dài không làm nhầm mục con sang mục tiêu khác"], "priority_label": "P1", "approval_status": "approved", "approved_by": "role:pm-owner", "approved_at": "2026-09-15", "version": "H2-rev3", "decision_ref": null },
+    { "requirement_id": "SYN-TR-09", "module": "phan-quyen", "domain": "report_visibility", "title": "Quyền xem báo cáo cá nhân theo quản lý trực tiếp", "scope": "Chỉ quản lý trực tiếp xem báo cáo cá nhân của thành viên.", "acceptance_criteria": ["Người không phải quản lý trực tiếp không thấy báo cáo cá nhân"], "priority_label": "P0", "approval_status": "approved", "approved_by": "role:pm-owner", "approved_at": "2026-08-01", "version": "H2-rev3", "decision_ref": "SYN-DEC-03" },
+    { "requirement_id": "SYN-TR-10", "module": "phan-quyen", "domain": "report_visibility", "title": "Quản lý cấp L2/L1 xem báo cáo của các team trực thuộc", "scope": "Mở quyền xem báo cáo team trực thuộc cho cấp quản lý cao hơn.", "acceptance_criteria": ["L2/L1 thấy báo cáo tổng hợp team trực thuộc"], "priority_label": "P1", "approval_status": "unknown", "approved_by": null, "approved_at": null, "version": "FAQ-27-10", "decision_ref": "SYN-DEC-07" },
+    { "requirement_id": "SYN-TR-14", "module": "check-in", "domain": "checkin_reminder", "title": "Nhắc lịch check-in định kỳ", "scope": "Thông báo nhắc check-in hàng tuần cho owner KR.", "acceptance_criteria": ["Owner KR nhận nhắc trước hạn check-in"], "priority_label": "P2", "approval_status": "approved", "approved_by": "role:pm-owner", "approved_at": "2026-07-10", "version": "H2-rev3", "decision_ref": null }
+  ],
+  "decisions": [
+    { "decision_id": "SYN-DEC-03", "domain": "report_visibility", "statement": "Chỉ quản lý trực tiếp được xem báo cáo cá nhân.", "status": "approved", "approved_by": "role:pm-owner", "approved_at": "2026-08-01", "supersedes": null },
+    { "decision_id": "SYN-DEC-07", "domain": "report_visibility", "statement": "Cấp L2/L1 được xem báo cáo của team trực thuộc.", "status": "unknown", "approved_by": null, "approved_at": null, "supersedes": null, "note": "Secondary source says rule under test; no decision log found." }
+  ]
+}

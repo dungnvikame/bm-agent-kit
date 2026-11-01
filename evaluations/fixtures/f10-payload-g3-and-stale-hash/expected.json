@@ -1,0 +1,8 @@
+{
+  "_scenario": "E10 — without DEV.G3 the create item is blocked; with DEV.G3 + action approval carrying the exact payload_hash it is allowed (manual entry); after the notes change the hash differs -> action approval stale -> blocked again; an agent-signed approval is invalid; wrong destination or wrong gate on the action approval also blocks; ghost parent/target tasks block",
+  "no_g3_block_contains": "DEV.G3 not approved",
+  "with_g3_and_action": "create",
+  "after_content_change": "blocked",
+  "stale_status": "stale",
+  "fake_agent_g3_status": "invalid"
+}

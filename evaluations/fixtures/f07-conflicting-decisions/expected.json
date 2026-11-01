@@ -1,0 +1,2 @@
+{ "parts": { "A": { "match_type": "conflict", "proposed_action": "ask_owner", "conflict_domain": "report_visibility", "conflict_decision_ids": ["SYN-DEC-03", "SYN-DEC-07"], "blocked_decisions": ["report_visibility"] } },
+  "conflict_with_other_action_rejected": true, "external_action": { "requested": false, "executed": false } }

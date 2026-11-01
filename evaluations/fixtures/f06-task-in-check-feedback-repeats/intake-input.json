@@ -1,0 +1,7 @@
+{
+  "_scenario": "E03 — a matching task sits in 'check' (dev done, awaiting QA) yet the feedback repeats; expect request_qa_evidence, never link/no_op without release evidence",
+  "feedback_id": "SYN-FB-006", "submitted_at": "2026-10-29", "module": "bao-cao", "product": "igoal",
+  "channel": "feedback_sheet", "reporter_role": "stakeholder",
+  "source": { "source_id": "SYN-S6", "location": "tab Synthetic row 6 A6:Q6", "retrieved_at": "2026-11-01" },
+  "parts": [ { "part_id": "A", "raw_text": "Phân cấp Objective và E trong màn báo cáo vẫn chưa nổi bật, header O/E nhỏ hơn KR/KS, tiêu đề dài bị truncate." } ]
+}

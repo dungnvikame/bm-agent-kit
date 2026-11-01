@@ -1,0 +1,30 @@
+{
+  "schema_version": "bm-agent-contract/0.2",
+  "run_id": "RUN-YYYYMMDD-<product>-<feedback_id>",
+  "artifact_id": "<product>-<feedback_id>-PAYLOAD",
+  "artifact_version": "0.1-draft",
+  "output_type": "payload_preview_record",
+  "status": "draft",
+  "requires_human_review": true,
+  "human_owner": "Tom",
+  "reviewer": "Tom",
+  "breakdown_artifact_id": "<product>-<feedback_id>-BREAKDOWN",
+  "sources": [{ "source_id": "SYN-S7", "location": "task snapshot", "retrieved_at": "unknown" }],
+  "target": { "project_id": "<project id>", "parent_task_id": null, "verified": false, "note": "verify against task source" },
+  "preconditions": {
+    "dev_g3": { "status": "missing", "approval_ref": null },
+    "action_approval": { "status": "missing", "approval_ref": null, "payload_hash_expected": null, "operation": null }
+  },
+  "write_adapter": "disabled",
+  "handoff_mode": "manual_entry_by_human",
+  "items": [{
+    "item_id": "PI-01", "proposal_id": "TP-01", "operation": "blocked", "target_task_id": null,
+    "payload": { "name": "...", "notes": "...", "project_id": "<project id>", "parent_task_id": null },
+    "payload_hash": "sha256:<64 hex>", "diff": [], "side_effects": [], "duplicate_candidates": [],
+    "block_reasons": ["DEV.G3 not approved/recorded", "no valid action approval"]
+  }],
+  "facts": [], "inferences": [], "proposals": [], "open_questions": [],
+  "gate_status": { "DEV.G3": "not_started" },
+  "external_action": { "requested": false, "executed": false },
+  "approval": { "approval_type": "artifact_only", "gate": "DEV.G3", "approved_by": null, "approved_at": null, "decision": "pending", "permits_external_write": false, "permits_send": false }
+}

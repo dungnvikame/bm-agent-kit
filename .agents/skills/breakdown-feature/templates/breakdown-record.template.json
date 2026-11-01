@@ -1,0 +1,28 @@
+{
+  "schema_version": "bm-agent-contract/0.2",
+  "run_id": "RUN-YYYYMMDD-<product>-<feedback_id>",
+  "artifact_id": "<product>-<feedback_id>-BREAKDOWN",
+  "artifact_version": "0.1-draft",
+  "output_type": "breakdown_record",
+  "status": "draft",
+  "requires_human_review": true,
+  "human_owner": "Tom",
+  "reviewer": "Tom",
+  "mapping_artifact_id": "<product>-<feedback_id>-MAPPING",
+  "intake_artifact_id": "<product>-<feedback_id>-INTAKE",
+  "sources": [{ "source_id": "SYN-S6", "location": "...", "retrieved_at": "unknown" }],
+  "direction": { "status": "hypothetical", "approval_ref": null, "note": "No DEV.G2 approval record." },
+  "official_handoff": false,
+  "problem": { "statement": null, "users": [], "evidence_refs": [], "outcome": null, "scope_in": [], "scope_out": [] },
+  "stories": [{
+    "story_id": "US-01", "part_id": "A", "label": "hypothetical", "as_a": "...", "i_want": "...", "so_that": "...",
+    "acceptance_criteria": [{ "ac_id": "AC-01", "given": "...", "when": "...", "then": "...", "coverage": "normal" }]
+  }],
+  "handoffs": [{ "role": "design", "asks": [], "owner": "role:design" }, { "role": "dev", "asks": [], "owner": "role:dev" }, { "role": "qa", "asks": [], "owner": "role:qa" }],
+  "task_proposals": [{ "proposal_id": "TP-01", "part_id": "A", "operation": "hold_for_shape", "target_task_id": null, "title": "...", "label": "hypothetical", "depends_on_gate": "DEV.G3", "payload_preview": { "name": "...", "notes": "..." } }],
+  "duplicate_check": { "method": "none", "tasks_scanned": 0, "exhaustive": false },
+  "facts": [], "inferences": [], "proposals": [], "open_questions": [],
+  "gate_status": { "DEV.G2": "not_started" },
+  "external_action": { "requested": false, "executed": false },
+  "approval": { "approval_type": "artifact_only", "gate": "DEV.G2", "approved_by": null, "approved_at": null, "decision": "pending", "permits_external_write": false, "permits_send": false }
+}

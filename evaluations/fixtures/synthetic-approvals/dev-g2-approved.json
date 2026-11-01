@@ -1,0 +1,12 @@
+{
+  "approval_type": "artifact_only",
+  "artifact_id": "IGOAL-SYN-FB-002-MAPPING",
+  "artifact_version": "0.1-draft",
+  "gate": "DEV.G2",
+  "approver": "role:pm-owner",
+  "approved_at": "2026-11-01T10:00:00Z",
+  "decision": "approved",
+  "recorded_in": { "source_id": "SYN-S2", "location": "Decision log row SYN-DL-21" },
+  "scope_of_applicability": "direction A only (hierarchy clarity); part B stays hypothetical",
+  "note": "synthetic fixture"
+}

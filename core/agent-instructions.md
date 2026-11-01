@@ -29,7 +29,7 @@ Effective config is checked by `python3 core/scripts/kit-cli.py config-check`. C
 
 ## 3. Skills
 
-Canonical skills live in `roles/pm/skills/<name>/SKILL.md`. Runtime copies are in `.claude/skills/` and `.agents/skills/` and must hash-match (`kit-cli.py sync --check`). Implemented in this foundation: `intake-feedback`. All other names in the registry are **planned contracts**, not installed skills.
+Canonical skills live in `roles/pm/skills/<name>/SKILL.md`. Runtime copies are in `.claude/skills/` and `.agents/skills/` and must hash-match (`kit-cli.py sync --check`). Implemented (MVP five): `intake-feedback`, `map-requirements`, `breakdown-feature`, `create-asana-tasks` (proposal-only), `evaluate-pm-output` (advisory). Remaining registry names are **planned contracts**, not installed skills. Human approval records (`core/contracts/schemas/approval-record.schema.json`) are written by Tom under `runs/<run_id>/approvals/`; the agent only reads and verifies them.
 
 ## 4. Where things go
 
