@@ -51,13 +51,12 @@
   "skills": {
     "implemented": [
       "intake-feedback",
-      "map-requirements"
-    ],
-    "planned_mvp": [
+      "map-requirements",
       "breakdown-feature",
       "create-asana-tasks",
       "evaluate-pm-output"
     ],
+    "planned_mvp": [],
     "planned_later": [
       "draft-prd",
       "summarize-sprint-status",

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bm-agent-kit/evaluation-record",
+  "title": "Evaluation Record (output of evaluate-pm-output skill, spec 9) — ADVISORY self-check, never a human grade",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "run_id", "artifact_id", "artifact_version", "output_type", "status", "requires_human_review",
+    "human_owner", "reviewer", "evaluated_artifact_id", "evaluated_output_type", "evaluated_artifact_version",
+    "is_human_evaluation", "final_grader", "policy_check", "immediate_fail_checks", "rubric", "advisory_score", "verdict",
+    "sources", "facts", "inferences", "proposals", "open_questions", "gate_status", "external_action", "approval"
+  ],
+  "properties": {
+    "schema_version": { "const": "bm-agent-contract/0.2" },
+    "run_id": { "type": "string", "minLength": 1 },
+    "artifact_id": { "type": "string", "minLength": 1 },
+    "artifact_version": { "type": "string", "pattern": "-draft$" },
+    "output_type": { "const": "evaluation_record" },
+    "status": { "const": "draft" },
+    "requires_human_review": { "const": true },
+    "human_owner": { "type": "string" }, "reviewer": { "type": "string" },
+    "kit_version": { "type": "string" }, "runtime": { "type": "string" }, "created_at": { "type": "string" },
+    "evaluated_artifact_id": { "type": "string", "minLength": 1 },
+    "evaluated_output_type": { "type": "string", "enum": ["intake_record", "mapping_record", "breakdown_record", "payload_preview_record"] },
+    "evaluated_artifact_version": { "type": "string" },
+    "is_human_evaluation": { "const": false },
+    "final_grader": { "const": "human" },
+    "policy_check": {
+      "type": "object", "additionalProperties": false, "required": ["policy", "violations"],
+      "properties": { "policy": { "type": "string" }, "violations": { "type": "array", "items": { "type": "string" } } }
+    },
+    "immediate_fail_checks": {
+      "type": "array", "minItems": 5,
+      "items": { "type": "object", "additionalProperties": false, "required": ["check_id", "description", "result", "evidence"],
+        "properties": {
+          "check_id": { "type": "string", "enum": ["IF1_external_action_without_approval", "IF2_sensitive_zone_persisted", "IF3_fabricated_source_or_approval", "IF4_draft_handed_over_as_approved", "IF5_production_or_permission_action"] },
+          "description": { "type": "string" },
+          "result": { "type": "string", "enum": ["pass", "fail", "needs_human", "not_applicable"] },
+          "evidence": { "type": "string" }
+        } }
+    },
+    "rubric": {
+      "type": "array", "minItems": 6,
+      "items": { "type": "object", "additionalProperties": false, "required": ["criterion_id", "weight", "agent_level", "human_level", "basis", "evidence_gaps", "fixes"],
+        "properties": {
+          "criterion_id": { "type": "string", "enum": ["evidence_provenance", "requirement_duplicate_mapping", "what_why_value", "ac_handoff_usable", "gates_authority_open_questions", "reviewability"] },
+          "weight": { "type": "integer" },
+          "agent_level": { "type": ["integer", "null"], "enum": [0, 1, 2, 3, 4, null] },
+          "human_level": { "const": null },
+          "basis": { "type": "string" },
+          "evidence_gaps": { "type": "array", "items": { "type": "string" } },
+          "fixes": { "type": "array", "items": { "type": "string" } }
+        } }
+    },
+    "advisory_score": { "type": ["number", "null"] },
+    "verdict": { "type": "string", "enum": ["fail_stop", "needs_fixes", "pass_advisory", "incomplete"] },
+    "sources": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "object", "additionalProperties": false, "required": ["source_id", "location", "retrieved_at"],
+        "properties": { "source_id": { "type": "string" }, "location": { "type": "string" }, "retrieved_at": { "type": "string" }, "version_or_snapshot": { "type": "string" } } }
+    },
+    "facts": { "type": "array", "items": { "$ref": "evidence-item.schema.json" } },
+    "inferences": { "type": "array", "items": { "$ref": "evidence-item.schema.json" } },
+    "proposals": { "type": "array", "items": { "$ref": "evidence-item.schema.json" } },
+    "open_questions": { "type": "array", "items": { "type": "string" } },
+    "gate_status": { "type": "object", "additionalProperties": { "type": "string", "enum": ["not_started", "pending", "approved", "invalidated"] } },
+    "external_action": { "type": "object", "additionalProperties": false, "required": ["requested", "executed"],
+      "properties": { "requested": { "const": false }, "executed": { "const": false } } },
+    "approval": {
+      "type": "object", "additionalProperties": false,
+      "required": ["approval_type", "approved_by", "approved_at", "decision", "permits_external_write", "permits_send"],
+      "properties": {
+        "approval_type": { "const": "artifact_only" }, "gate": { "type": "string" },
+        "approved_by": { "type": ["string", "null"] }, "approved_at": { "type": ["string", "null"] },
+        "decision": { "type": "string", "enum": ["pending", "approved", "rejected", "changes_requested"] },
+        "permits_external_write": { "const": false }, "permits_send": { "const": false }
+      }
+    }
+  }
+}

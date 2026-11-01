@@ -9,7 +9,7 @@ Spec: `pm-agent-config-v0.2.0-review.md` (kept local, gitignored — it contains
 | Layer | Path | Contains |
 |---|---|---|
 | Shared Core | `core/` | policies (safety, tool, evidence, lifecycle/gates, approval), contracts + JSON schemas, `kitlib` + `kit-cli.py` |
-| Role Pack | `roles/pm/` | PM scope, skill registry, `intake-feedback` + `map-requirements` skills (canonical), rubric |
+| Role Pack | `roles/pm/` | PM scope, skill registry, the five MVP skills (canonical): `intake-feedback`, `map-requirements`, `breakdown-feature`, `create-asana-tasks` (proposal-only), `evaluate-pm-output` (advisory); rubric |
 | Product Pack | `products/igoal/` | context index, source registry (URL-free), synonyms, glossary |
 | Runtime Adapters | `adapters/{claude-code,codex}/` → generated `.claude/`, `.agents/`, `.codex/`, `AGENTS.md`, `CLAUDE.md` | permission config, tool mapping, hash-checked copies |
 
@@ -52,6 +52,14 @@ python3 core/scripts/kit-cli.py validate runs/demo/mapping.json
 ```
 Snapshots default to the synthetic fixtures; pass `--requirements` / `--tasks` for real (repo-internal, redacted) snapshots once the Product Context Index is closed.
 
+### Phase 3 chain: breakdown → payload preview → evaluation
+```bash
+python3 scripts/breakdown-preprocess.py runs/demo/mapping.json [--approval runs/demo/approvals/dev-g2.json] --out runs/demo/breakdown.json
+python3 scripts/create-asana-tasks-preprocess.py runs/demo/breakdown.json --project <project-id> [--g3 runs/demo/approvals/dev-g3.json] [--action runs/demo/approvals/action.json] --out runs/demo/payload.json
+python3 scripts/evaluate-preprocess.py runs/demo/mapping.json --out runs/demo/mapping-eval.json
+```
+Approval records are **written by Tom**, never by the agent (`core/contracts/schemas/approval-record.schema.json`, samples in `evaluations/fixtures/synthetic-approvals/`). Without a DEV.G2 record the breakdown is hypothetical; without DEV.G3 **and** an action approval whose `payload_hash` equals the item's hash, no payload item is ever `create`/`update`. Even then the write adapter is disabled: Tom enters the payload manually.
+
 ## Policy enforcement matrix (what is real vs. what is instruction)
 
 | Policy (spec) | Claude Code | Codex | Kit scripts | Instruction only |
@@ -64,6 +72,9 @@ Snapshots default to the synthetic fixtures; pass `--requirements` / `--tasks` f
 | Lower layer only narrows (§2) | — | — | `config-check` fail-closed | — |
 | Fact needs source; bug needs reproduction; severity needs basis (§4, §5.1) | — | — | `validate` | yes |
 | Mapping: exact needs AC basis, conflict blocks decision (ask_owner), check/done task needs QA or release evidence, no create action (§5.2) | — | — | `validate` (mapping_record) | yes |
+| Breakdown: no DEV.G2 record → hypothetical, no official handoff, no new_task_proposal; AC must be Given/When/Then and cover a non-happy path; no estimate/owner/sprint fields (§5.3) | — | — | `validate` (breakdown_record) | yes |
+| Task payload: create/update only with DEV.G3 + action approval bound to the exact `payload_hash`; duplicates block create; write adapter disabled; one approval = one payload (§5.4, §7.1) | — | — | `validate` (payload_preview_record) | yes |
+| Evaluation is advisory: `human_level` null, immediate fail ⇒ fail_stop, pass_advisory needs ≥85 and zero violations (§9) | — | — | `validate` (evaluation_record) | yes |
 | Agent never sets `approved_by` / gate `approved` (§6, §7.1) | — | — | `validate` | yes |
 | "ok nội dung" ≠ action approval (§3, E09) | — | — | `validate` (external_action) | yes |
 | Gate semantics, WHAT/WHY scope, BOD/sponsor/escalation rules, Draft lifecycle | — | — | — | **yes, only** |
@@ -73,7 +84,7 @@ Scripts enforce only on artifacts that pass through them. Hooks that force `scan
 
 ## Runnable vs. template
 
-Runnable now: `core/kitlib/*`, `core/scripts/kit-cli.py`, `scripts/intake-preprocess.py`, `scripts/map-requirements-preprocess.py`, `evaluations/smoke/*`, fixtures f01–f07, `adapters/claude-code/pm-agent-settings.json` (loads in Claude Code), skill files (load as Claude Code skill).
+Runnable now: `core/kitlib/*`, `core/scripts/kit-cli.py`, the five `scripts/*-preprocess.py`, `evaluations/smoke/*`, fixtures f01–f11, `adapters/claude-code/pm-agent-settings.json` (loads in Claude Code), skill files (load as Claude Code skill).
 Template / unverified: everything under `adapters/codex/` and `.codex/` (not executed), MCP server names in Claude settings, `source-registry.local.example.json`.
 
 ## Repository rules
@@ -86,4 +97,4 @@ Template / unverified: everything under `adapters/codex/` and `.codex/` (not exe
 `python3 tools/dashboard/serve.py` → http://127.0.0.1:8765 (stdlib only, localhost only). Read views for layers/effective config, skills + adapter sync, policies, product pack, evaluations, plans; edit forms for the role/product contracts and canonical skill/policy/instruction files. Every save is refused on any compose violation and re-syncs adapter copies; no git actions, no private files. See `docs/dashboard-guide.md`.
 
 ## Not in MVP (by spec)
-Web UI inside the agent runtime, vector DB, multi-agent orchestration, self-learning memory, write adapters, skills other than `intake-feedback` and `map-requirements` (see `roles/pm/skills/README.md` for planned contracts). A maintainer dashboard under `tools/` is being built separately and is not loaded by the agent.
+Web UI inside the agent runtime, vector DB, multi-agent orchestration, self-learning memory, write adapters (Asana/Docs/Slack writes), the four later-phase skills (`draft-prd`, `summarize-sprint-status`, `update-docs-on-completion`, `draft-stakeholder-update`; see `roles/pm/skills/README.md`). A maintainer dashboard under `tools/` is being built separately and is not loaded by the agent.

@@ -1,0 +1,10 @@
+{
+  "_scenario": "E09 — 'ok nội dung' = artifact approvals only (DEV.G2 + DEV.G3), no action approval: every write item (create/update/link) is blocked; forcing create or forging preconditions is rejected by policy",
+  "all_items_operation": "blocked",
+  "block_contains": "no valid action approval",
+  "write_adapter": "disabled",
+  "external_action": {
+    "requested": false,
+    "executed": false
+  }
+}

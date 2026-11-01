@@ -1,0 +1,11 @@
+{
+  "approval_type": "artifact_only",
+  "artifact_id": "IGOAL-SYN-FB-002-BREAKDOWN",
+  "artifact_version": "0.1-draft",
+  "gate": "DEV.G3",
+  "approver": "PM Agent",
+  "approved_at": "2026-11-01T11:00:00Z",
+  "decision": "approved",
+  "recorded_in": { "source_id": "SYN-S2", "location": "none" },
+  "note": "must be rejected: approver is an agent"
+}

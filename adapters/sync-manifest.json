@@ -27,6 +27,27 @@
       "targets": [
         ".codex/config.toml"
       ]
+    },
+    {
+      "source": "roles/pm/skills/breakdown-feature",
+      "targets": [
+        ".claude/skills/breakdown-feature",
+        ".agents/skills/breakdown-feature"
+      ]
+    },
+    {
+      "source": "roles/pm/skills/create-asana-tasks",
+      "targets": [
+        ".claude/skills/create-asana-tasks",
+        ".agents/skills/create-asana-tasks"
+      ]
+    },
+    {
+      "source": "roles/pm/skills/evaluate-pm-output",
+      "targets": [
+        ".claude/skills/evaluate-pm-output",
+        ".agents/skills/evaluate-pm-output"
+      ]
     }
   ]
 }

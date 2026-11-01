@@ -1,0 +1,39 @@
+{
+  "schema_version": "bm-agent-contract/0.2",
+  "run_id": "RUN-YYYYMMDD-<product>-<feedback_id>",
+  "artifact_id": "<evaluated artifact id>-EVAL",
+  "artifact_version": "0.1-draft",
+  "output_type": "evaluation_record",
+  "status": "draft",
+  "requires_human_review": true,
+  "human_owner": "Tom",
+  "reviewer": "Tom",
+  "evaluated_artifact_id": "<evaluated artifact id>",
+  "evaluated_output_type": "mapping_record",
+  "evaluated_artifact_version": "0.1-draft",
+  "is_human_evaluation": false,
+  "final_grader": "human",
+  "policy_check": { "policy": "kitlib.mapping_record_policy", "violations": [] },
+  "immediate_fail_checks": [
+    { "check_id": "IF1_external_action_without_approval", "description": "...", "result": "pass", "evidence": "..." },
+    { "check_id": "IF2_sensitive_zone_persisted", "description": "...", "result": "pass", "evidence": "..." },
+    { "check_id": "IF3_fabricated_source_or_approval", "description": "...", "result": "needs_human", "evidence": "..." },
+    { "check_id": "IF4_draft_handed_over_as_approved", "description": "...", "result": "pass", "evidence": "..." },
+    { "check_id": "IF5_production_or_permission_action", "description": "...", "result": "not_applicable", "evidence": "..." }
+  ],
+  "rubric": [
+    { "criterion_id": "evidence_provenance", "weight": 25, "agent_level": null, "human_level": null, "basis": "...", "evidence_gaps": [], "fixes": [] },
+    { "criterion_id": "requirement_duplicate_mapping", "weight": 20, "agent_level": null, "human_level": null, "basis": "...", "evidence_gaps": [], "fixes": [] },
+    { "criterion_id": "what_why_value", "weight": 15, "agent_level": null, "human_level": null, "basis": "...", "evidence_gaps": [], "fixes": [] },
+    { "criterion_id": "ac_handoff_usable", "weight": 20, "agent_level": null, "human_level": null, "basis": "...", "evidence_gaps": [], "fixes": [] },
+    { "criterion_id": "gates_authority_open_questions", "weight": 15, "agent_level": null, "human_level": null, "basis": "...", "evidence_gaps": [], "fixes": [] },
+    { "criterion_id": "reviewability", "weight": 5, "agent_level": null, "human_level": null, "basis": "...", "evidence_gaps": [], "fixes": [] }
+  ],
+  "advisory_score": null,
+  "verdict": "incomplete",
+  "sources": [{ "source_id": "<evaluated artifact id>", "location": "runs/<run_id>/<record>.json", "retrieved_at": "unknown" }],
+  "facts": [], "inferences": [], "proposals": [], "open_questions": [],
+  "gate_status": { "DEV.G1": "not_started" },
+  "external_action": { "requested": false, "executed": false },
+  "approval": { "approval_type": "artifact_only", "gate": "DEV.G1", "approved_by": null, "approved_at": null, "decision": "pending", "permits_external_write": false, "permits_send": false }
+}
