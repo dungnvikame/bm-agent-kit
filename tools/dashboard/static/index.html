@@ -1,36 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BM Agent Kit — Maintainer Dashboard</title>
+<title>PM Agent — Bảng điều khiển</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <header>
-  <div class="brand">BM Agent Kit <span class="muted">maintainer dashboard · local only · not part of the agent runtime</span></div>
-  <div id="status-pill" class="pill">loading…</div>
+  <div class="brand">PM Agent · Bảng điều khiển <span class="muted">chỉ chạy trên máy này · không phải một phần của agent</span></div>
+  <div id="status-pill" class="pill">đang kiểm tra…</div>
 </header>
 <div class="layout">
   <nav id="nav">
-    <div class="nav-group">Read</div>
-    <button data-view="overview">Layers &amp; effective config</button>
-    <button data-view="skills">Skills</button>
-    <button data-view="policies">Policies</button>
-    <button data-view="product">Product pack (iGoal)</button>
-    <button data-view="evaluations">Evaluations</button>
-    <button data-view="plans">Plans &amp; reports</button>
-    <div class="nav-group">Edit</div>
-    <button data-view="contracts">Contracts (forms)</button>
-    <button data-view="editor">Text editor</button>
+    <div class="nav-group">Xem</div>
+    <button data-view="home">🏠 Tổng quan</button>
+    <button data-view="agent">🤖 Agent làm được gì</button>
+    <button data-view="rules">🛡️ Quy tắc an toàn</button>
+    <button data-view="sources">📚 Nguồn dữ liệu iGoal</button>
+    <button data-view="checks">✅ Kiểm tra chất lượng</button>
+    <button data-view="progress">🗺️ Tiến độ dự án</button>
+    <div class="nav-group">Chỉnh sửa</div>
+    <button data-view="settings">⚙️ Cài đặt agent</button>
+    <button data-view="docs">📝 Văn bản hướng dẫn</button>
   </nav>
-  <main id="main"><p class="muted">Loading…</p></main>
+  <main id="main"><p class="muted">Đang tải…</p></main>
 </div>
 <div id="toast" class="toast hidden"></div>
 <script src="/static/dashboard-core.js"></script>
-<script src="/static/json-form.js"></script>
-<script src="/static/views-read.js"></script>
-<script src="/static/views-edit.js"></script>
+<script src="/static/labels-vi.js"></script>
+<script src="/static/markdown-lite.js"></script>
+<script src="/static/views-home.js"></script>
+<script src="/static/views-agent.js"></script>
+<script src="/static/views-sources.js"></script>
+<script src="/static/settings-schema.js"></script>
+<script src="/static/views-settings.js"></script>
+<script src="/static/views-docs.js"></script>
 <script>Dash.boot();</script>
 </body>
 </html>

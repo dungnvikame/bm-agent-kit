@@ -40,7 +40,7 @@ class DashboardServerTest(unittest.TestCase):
         status, ctype, body = self.call("/")
         self.assertEqual(status, 200)
         self.assertIn("text/html", ctype)
-        self.assertIn(b"Maintainer Dashboard", body)
+        self.assertIn("Bảng điều khiển".encode("utf-8"), body)
         self.assertEqual(self.call("/static/dashboard-core.js")[0], 200)
         self.assertEqual(self.call("/static/../serve.py")[0], 404)
         self.assertEqual(self.call("/static/%2e%2e/serve.py")[0], 404)
